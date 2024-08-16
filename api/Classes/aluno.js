@@ -29,7 +29,7 @@ class Aluno {
         this.db = database;
     }
 
-    // Método para modificar o número de neurons
+    // Método para modificar o número de neurons do aluno
     static async updateNeurons(nome, novosNeurons) {
         try {
             const result = await this.db.collection('aulas').updateOne(

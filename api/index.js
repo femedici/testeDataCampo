@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Conectar ao MongoDB antes de iniciar o servidor
+// Conectar com o banco e verificar conexão
 let db;
 async function connectToDB() {
   const client = new MongoClient(url);
@@ -44,13 +44,17 @@ async function connectToDB() {
 
 connectToDB();
 
-// Rota GET para buscar todas as aulas
+//===================================
+// Requisições da api 
+//===================================
+
+// GET para buscar todas as aulas
 app.get('/aulas', async (req, res) => {
   const aulas = await Aula.getAll();
   res.status(200).json(aulas);
 });
 
-// Rota GET para buscar o primeiro aluno
+// GET para buscar o primeiro aluno
 app.get('/aluno', async (req, res) => {
   try {
     const aluno = await Aluno.getFirst();
@@ -64,14 +68,14 @@ app.get('/aluno', async (req, res) => {
   }
 });
 
-// Rota POST para criar uma nova aula
+// POST para criar uma nova aula
 app.post('/aulas', async (req, res) => {
   const { titulo, descricao, cartaz, dataEvento, dataLimite, neurons, limiteParticipantes, nivel, isActive, students } = req.body;
   const novaAula = await Aula.create(titulo, descricao, cartaz, new Date(dataEvento), new Date(dataLimite), neurons, limiteParticipantes, nivel, isActive, students);
   res.status(201).json(novaAula.getDetails());
 });
 
-// Rota PUT para adicionar aluno na lista de students de uma aula
+// PUT para adicionar aluno na lista de students de uma aula
 app.put('/aulas/:id/adicionar-aluno', async (req, res) => {
   const { id } = req.params; // id é o inteiro que você está passando na URL
   const { aluno } = req.body;
@@ -85,7 +89,7 @@ app.put('/aulas/:id/adicionar-aluno', async (req, res) => {
 
     if (aula) {
       console.log('Aula encontrada:', aula);
-      
+
       // Verifica se o número de alunos já atingiu o limite de participantes
       if (aula.students.length >= aula.limiteParticipantes) {
         res.status(400).json({ message: 'Limite de participantes atingido.' });
@@ -114,7 +118,7 @@ app.put('/aulas/:id/adicionar-aluno', async (req, res) => {
 
 
 
-// Rota PUT para atualizar os neurons de um aluno
+// PUT para atualizar os neurons de um aluno
 app.put('/alunos/update-neurons', async (req, res) => {
   const { nome, novosNeurons } = req.body;
 
@@ -136,7 +140,7 @@ app.put('/alunos/update-neurons', async (req, res) => {
 });
 
 
-// Servidor ouvindo na porta 3000
+// Configurar servidor na porta 3000
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

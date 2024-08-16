@@ -190,7 +190,7 @@ const SignClasses = () => {
 
       {/* Campo de Pesquisa */}
       <TextField
-        label="Search by class title"
+        label="Pesquisar nome da Aula"
         variant="outlined"
         fullWidth
         margin="normal"

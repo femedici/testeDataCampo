@@ -16,11 +16,6 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  CardActions
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PersonIcon from '@mui/icons-material/Person';
@@ -76,7 +71,7 @@ const ListClasses = () => {
       <>
         {/* Campo de busca para alunos */}
         <TextField
-          label="Search students by name"
+          label="Pesquisar por nome de aluno"
           variant="outlined"
           fullWidth
           margin="normal"
@@ -139,7 +134,7 @@ const ListClasses = () => {
 
       {/* Campo de Pesquisa */}
       <TextField
-        label="Search by class title"
+        label="Pesquisar por nome de aula"
         variant="outlined"
         fullWidth
         margin="normal"
