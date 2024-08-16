@@ -28,7 +28,7 @@ O sistema deve ter uma interface onde o professor pode cadastrar uma aula. Os ca
 
 ### 2. Consulta de Alunos Inscritos (Professor)
 
-Deve existir uma interfa    ce onde o professor pode consultar os alunos inscritos em uma aula específica. Essa interface deve listar todos os alunos que se inscreveram na aula selecionada.
+Deve existir uma interface onde o professor pode consultar os alunos inscritos em uma aula específica. Essa interface deve listar todos os alunos que se inscreveram na aula selecionada.
 
 ### 3. Inscrição em Aulas (Aluno)
 
