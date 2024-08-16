@@ -1,54 +1,55 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
 class Aluno {
-    constructor(id, nome, neurons, level) {
-        this.id = id;
+    static db; // Propriedade estática para armazenar o banco de dados
+
+    constructor(nome, neurons = 0, level = 0) {
         this.nome = nome;
         this.neurons = neurons;
         this.level = level;
     }
 
-    // Método para exibir detalhes do usuário
+    // Método para exibir detalhes do aluno
     getDetails() {
-        return `Id ${this.id}, Nome: ${this.nome}, Neurons: ${this.neurons}, Level: ${this.level}`;
+        return `Nome: ${this.nome}, Neurons: ${this.neurons}, Level: ${this.level}`;
     }
 
-    // Método estático para se conectar ao banco de dados
-    static async connect() {
-        const url = 'mongodb://localhost:27017';
-        const client = new MongoClient(url);
-        await client.connect();
-        console.log("Conectado ao MongoDB");
-        return client.db('escola').collection('alunos'); // Retorna a coleção "alunos"
-    }
-
-    // Método estático para buscar um aluno pelo ID
-    static async getById(alunoId) {
-        const collection = await this.connect();
+    // Método para buscar o primeiro aluno no banco de dados
+    static async getFirst() {
         try {
-            const aluno = await collection.findOne({ _id: new ObjectId(alunoId) });
-            if (aluno) {
-                return new Aluno(aluno._id, aluno.nome, aluno.neurons, aluno.level);
-            } else {
-                return null;
-            }
+            const aluno = await this.db.collection('alunos').findOne({});
+            return aluno;
         } catch (error) {
-            console.error('Erro ao buscar aluno por ID:', error);
+            console.error('Erro ao buscar o primeiro aluno:', error);
         }
     }
 
-    // // Método estático para criar um novo aluno
-    // static async create(nome, neurons, level) {
-    //     const collection = await this.connect();
-    //     const novoAluno = { nome, neurons, level };
-    //     try {
-    //         const result = await collection.insertOne(novoAluno);
-    //         console.log('Aluno inserido com sucesso:', result.insertedId);
-    //         return new Aluno(result.insertedId, nome, neurons, level);
-    //     } catch (error) {
-    //         console.error('Erro ao inserir novo aluno:', error);
-    //     }
-    // }
+    // Método para configurar o banco de dados
+    static setDatabase(database) {
+        this.db = database;
+    }
+
+    // Método para modificar o número de neurons
+    static async updateNeurons(nome, novosNeurons) {
+        try {
+            const result = await this.db.collection('aulas').updateOne(
+                { 'students.nome': nome },
+                { $set: { 'students.$.neurons': novosNeurons } }
+            );
+            return result.modifiedCount > 0;
+        } catch (error) {
+            console.error('Erro ao atualizar neurons do aluno:', error);
+            return false;
+        }
+    }
+
+    // Método para criar um aluno aleatório
+    static async createRandomAluno() {
+        const randomNumber = Math.floor(Math.random() * 100);
+        const nome = `RandomAluno${randomNumber}`;
+        const novoAluno = new Aluno(nome);
+        return novoAluno;
+    }
 }
 
 export default Aluno;

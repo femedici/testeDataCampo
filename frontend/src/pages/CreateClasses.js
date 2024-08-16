@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Alert from '@mui/material/Alert';
 import {
   TextField,
   Button,
@@ -21,12 +22,13 @@ const EventForm = () => {
     cartaz: '',
     dataEvento: '',
     dataLimite: '',
-    neurons: [],
-    limiteParticipantes: [],
-    nivel: [],
+    neurons: '',
+    limiteParticipantes: '',
+    nivel: '',
     isActive: true,
-    students: '',
+    students: [],
   });
+  const [alert, setAlert] = useState({ open: false, message: '', severity: 'info' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,8 +49,9 @@ const EventForm = () => {
     e.preventDefault();
     try {
       // Enviar os dados para o backend
-      const response = await axios.post('http://localhost:5000/api/events', formData);
+      const response = await axios.post('http://localhost:3000/aulas', formData);
       console.log('Resposta do servidor:', response.data);
+      setAlert({ open: true, message: 'Aula criada com sucesso!', severity: 'success' });
       // Aqui você pode adicionar lógica adicional, como mostrar uma mensagem de sucesso
     } catch (error) {
       console.error('Erro ao enviar dados:', error);
@@ -58,9 +61,26 @@ const EventForm = () => {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Typography variant="h4" gutterBottom>
-        Cadastre uma  Aula
+      <Typography
+        variant="h3"
+        gutterBottom
+        sx={{
+          fontSize: '3rem', // Altere o tamanho da fonte
+          fontWeight: 'bold', // Altere o peso da fonte
+          color: '#020341' // Altere a cor do texto
+        }}
+      >
+        Cadastre uma Aula
       </Typography>
+      <div>
+        {/* Exibe o alerta se a condição for atendida */}
+        {alert && (
+          <Alert variant="filled" severity={alert.severity} onClose={() => setAlert(null)}>
+            {alert.message}
+          </Alert>
+        )}
+      </div>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -134,7 +154,7 @@ const EventForm = () => {
               label="Neurons Necessários"
               name="neurons"
               type="number"
-              value={formData.neurons}
+              value={formData.neurons || ''}
               onChange={handleChange}
               fullWidth
             />
@@ -146,7 +166,7 @@ const EventForm = () => {
               label="Limite de Participantes"
               name="limiteParticipantes"
               type="number"
-              value={formData.limiteParticipantes}
+              value={formData.limiteParticipantes || ''}
               onChange={handleChange}
               fullWidth
             />
@@ -159,7 +179,7 @@ const EventForm = () => {
                 labelId="nivel-label"
                 id="nivel-select"
                 name="nivel"
-                value={formData.nivel}
+                value={formData.nivel || ''}
                 onChange={handleChange}
                 label="Nível"
               >

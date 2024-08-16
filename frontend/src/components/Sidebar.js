@@ -6,6 +6,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import logo from '../logo.png';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import CardMembershipIcon from '@mui/icons-material/CardMembership';
+
 
 const drawerWidth = 240;
 
@@ -24,34 +27,27 @@ function Sidebar() {
         <Box sx={{ overflow: 'auto', textAlign: 'center' }}>
           <img src={logo} alt="Logo" style={{ width: '150px', marginTop: '40px' }} />
 
-        <Toolbar />
+          <Toolbar />
           <List>
             <ListItem button component={Link} to="/">
               <ListItemIcon>
-                <PersonIcon />
+                <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Aulas Disponíveis" />
             </ListItem>
 
             <ListItem button component={Link} to="/create-professor">
               <ListItemIcon>
-                <DashboardIcon />
+                <LibraryAddIcon />
               </ListItemIcon>
               <ListItemText primary="Criar Aula" />
             </ListItem>
 
             <ListItem button component={Link} to="/sign-student">
               <ListItemIcon>
-                <ShoppingCartIcon />
-              </ListItemIcon>
+                <CardMembershipIcon />
+              </ListItemIcon> 
               <ListItemText primary="Inscrição (Aluno)" />
-            </ListItem>
-
-            <ListItem button component={Link} to="/view-professor">
-              <ListItemIcon>
-                <VisibilityIcon />
-              </ListItemIcon>
-              <ListItemText primary="Ver Aula/Turma " />
             </ListItem>
           </List>
         </Box>
