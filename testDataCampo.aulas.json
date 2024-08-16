@@ -1,0 +1,119 @@
+[{
+  "_id": {
+    "$oid": "66bfc0d5db48c16e6eb17076"
+  },
+  "id": 539,
+  "titulo": "Aula IA",
+  "descricao": "curso sobre inteligência artificial",
+  "cartaz": "https://www.kiatech.com.br/wp-content/uploads/2024/05/Como-Criar-Imagens-com-IA-Um-Passo-a-Passo03.jpg",
+  "dataEvento": "09/10/2010",
+  "dataLimite": "29/08/2024",
+  "neurons": "10",
+  "limiteParticipantes": "10",
+  "nivel": 5,
+  "isActive": true,
+  "students": [
+    "Matheus Henrique",
+    "Matheus Fernando",
+    "Felipe Augusto",
+    "Alcino Elias",
+    "Pedro Henrique",
+    "RandowAluno92"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66bfc30cdb48c16e6eb17077"
+  },
+  "id": 967,
+  "titulo": "Matematica basica",
+  "descricao": "curso sobre matematica basica",
+  "cartaz": "https://profuturo.education/wp-content/uploads/2022/03/Captura-de-pantalla-2022-03-11-a-las-10.51.35.png",
+  "dataEvento": "09/10/2010",
+  "dataLimite": "30/08/2024",
+  "neurons": "10",
+  "limiteParticipantes": "10",
+  "nivel": 3,
+  "isActive": true,
+  "students": [
+    "Matheus Henrique",
+    "João Augusto",
+    "João Pedro",
+    "Eduardo Henrique",
+    "RandowAluno92"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66bfc5039932874bad47cc3b"
+  },
+  "id": 804,
+  "titulo": "Gestao e Marketing",
+  "descricao": "curso sobre marketing e gestão de produtos",
+  "cartaz": "https://www.accesscorp.com/wp-content/uploads/2022/01/10-etapas-para-construir-um-roteiro-de-gesta%CC%83o-da-informac%CC%A7a%CC%83o.png",
+  "dataEvento": "08/02/2024",
+  "dataLimite": "28/08/2024",
+  "neurons": "14",
+  "limiteParticipantes": "20",
+  "nivel": 7,
+  "isActive": true,
+  "students": [
+    "Felipe Augusto",
+    "Pedro Henrique",
+    "RandowAluno92"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66bfcac69932874bad47cc3d"
+  },
+  "id": 993,
+  "titulo": "Quimica Aplicada",
+  "descricao": "aulas sobre quimica aplicadas",
+  "cartaz": "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/a-quimica-oferece-conhecimentos-muito-importantes-para-desenvolvimento-nossa-sociedade-562fd9fc8296e.jpg",
+  "dataEvento": "15/08/2024",
+  "dataLimite": "26/08/2024",
+  "neurons": "8",
+  "limiteParticipantes": "10",
+  "nivel": 5,
+  "isActive": true,
+  "students": [
+    "RandowAluno92"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66bfce029932874bad47cc3e"
+  },
+  "id": 598,
+  "titulo": "Lingua Inglesa",
+  "descricao": "curso sobre ingles ",
+  "cartaz": "https://faculdadeacesita.com.br/wp-content/uploads/2021/10/Beneficios-da-lingua-inglesa-no-mercado-de-trabalho.jpg",
+  "dataEvento": "15/08/2024",
+  "dataLimite": "29/08/2024",
+  "neurons": "10",
+  "limiteParticipantes": "20",
+  "nivel": 4,
+  "isActive": true,
+  "students": [
+    "RandowAluno92"
+  ]
+},
+{
+  "_id": {
+    "$oid": "66bfd6b0dbba1588c079a2fe"
+  },
+  "id": 994,
+  "titulo": "teste",
+  "descricao": "asdf",
+  "cartaz": "adfs",
+  "dataEvento": "16/08/2024",
+  "dataLimite": "27/08/2024",
+  "neurons": "3",
+  "limiteParticipantes": "3",
+  "nivel": 7,
+  "isActive": true,
+  "students": [
+    "RandowAluno92"
+  ]
+}]

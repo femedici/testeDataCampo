@@ -21,6 +21,9 @@ Porta de conexão ao mongo: mongodb://localhost:27017
 
 Ao iniciar a aplicação, é gerado um aluno aleatório. Com valor de neurons e nivel zerados, para serem alterados direto no banco.
 
+## Querys de teste - Banco de Aulas
+As querys de teste com registro de aulas e alunos integrados, estão no arquivo json ("testeDataCampo.aulas.json")
+
 ### Linguagens e Tecnologias
 **Front-end:** 
 [![My Skills](https://skillicons.dev/icons?i=react,js)](https://skillicons.dev)
