@@ -8,18 +8,18 @@ import SignClasses from './pages/SignClasses';
 import Sidebar from './components/Sidebar';
 import { Box } from '@mui/material';
 
-const drawerWidth = 240; // Mesma largura da sidebar
+const drawerWidth = 240; 
 
 function App() {
   return (
     <Router>
-      <Box //componente para fazer a margem do sidebar
+      <Box 
         component="main"
         sx={{
           flexGrow: 1,
-          p: 2, // Reduzindo o padding geral para 16px
+          p: 2, 
           marginLeft: `${drawerWidth}px`,
-          marginTop: '2px' // Ajuste da margem superior
+          marginTop: '2px' 
         }}
       >
       <Routes>

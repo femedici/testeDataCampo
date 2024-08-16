@@ -1,22 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-  TextField,
-  Box,
-  Grid,
-  Avatar,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-} from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, TextField, Box, Grid, Avatar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -38,7 +22,6 @@ const ListClasses = () => {
   };
 
   useEffect(() => {
-    // Chama a função quando o componente for montado
     fetchClasses();
   }, []);
 
@@ -95,13 +78,13 @@ const ListClasses = () => {
                         <PersonIcon />
                       </Avatar>
                     </TableCell>
-                    <TableCell>{student}</TableCell> {/* Exibe o nome diretamente */}
+                    <TableCell>{student}</TableCell>
                   </TableRow>
                 ))
               ) : (
                 <TableRow>
                   <TableCell colSpan={2}>
-                    <Typography>No students found.</Typography>
+                    <Typography>Sem alunos inscritos</Typography>
                   </TableCell>
                 </TableRow>
               )}
@@ -111,8 +94,6 @@ const ListClasses = () => {
       </>
     );
   };
-
-
 
   return (
     <Box sx={{ p: 3 }}>
@@ -153,23 +134,21 @@ const ListClasses = () => {
                 id={`panel${index}-header`}
                 sx={{ alignItems: 'center' }}
               >
-                {/* Imagem de capa da aula */}
                 <img
                   src={classItem.cartaz}
                   alt={classItem.titulo}
                   style={{
-                    width: '50px', // Ajuste a largura conforme necessário
-                    height: '50px', // Ajuste a altura conforme necessário
-                    marginRight: '15px', // Espaçamento entre a imagem e o texto
-                    objectFit: 'cover', // Ajusta a imagem para cobrir o espaço, sem distorcer
-                    borderRadius: '4px' // Deixa os cantos arredondados, se desejar
+                    width: '50px',
+                    height: '50px',
+                    marginRight: '15px',
+                    objectFit: 'cover',
+                    borderRadius: '4px'
                   }}
                 />
                 <Typography>{classItem.titulo}</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>{classItem.descricao}</Typography>
-
                 {/* Listagem de Alunos com busca por nome */}
                 <Typography variant="h6" gutterBottom>
                   Alunos Inscritos na {classItem.titulo}
@@ -180,7 +159,6 @@ const ListClasses = () => {
           </Grid>
         ))}
       </Grid>
-
     </Box >
   );
 };

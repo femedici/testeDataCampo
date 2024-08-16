@@ -15,7 +15,6 @@ const drawerWidth = 240;
 function Sidebar() {
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* Navbar Lateral */}
       <Drawer
         variant="permanent"
         sx={{

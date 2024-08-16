@@ -80,15 +80,11 @@ app.put('/aulas/:id/adicionar-aluno', async (req, res) => {
   const { id } = req.params; // id é o inteiro que você está passando na URL
   const { aluno } = req.body;
 
-  console.log('ID recebido:', id); // Log do ID
-  console.log('Aluno recebido:', aluno); // Log do aluno
-
   try {
     // Busca a aula pelo id como inteiro
     const aula = await db.collection('aulas').findOne({ id: parseInt(id) });
 
     if (aula) {
-      console.log('Aula encontrada:', aula);
 
       // Verifica se o número de alunos já atingiu o limite de participantes
       if (aula.students.length >= aula.limiteParticipantes) {

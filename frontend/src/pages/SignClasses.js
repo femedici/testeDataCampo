@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Grid,
-  Box,
-  TextField,
-  CardActions,
-  Button
-} from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid, Box, TextField, CardActions, Button} from '@mui/material';
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
 
 const SignClasses = () => {
@@ -26,7 +16,7 @@ const SignClasses = () => {
     try {
       const response = await axios.get('http://localhost:3000/aulas');
       setClassesData(response.data);
-      setFilteredClasses(response.data); // Inicialmente, mostra todas as aulas
+      setFilteredClasses(response.data); 
       console.log('Resposta do servidor:', response.data);
     } catch (error) {
       console.error('Erro ao buscar as aulas:', error);
@@ -34,7 +24,6 @@ const SignClasses = () => {
   };
 
   useEffect(() => {
-    // Chama a função quando o componente for montado
     fetchClasses();
   }, []);
 
@@ -106,7 +95,6 @@ const SignClasses = () => {
       return;
     }
 
-    // Se todas as condições forem atendidas, vai chegar a esse nivel
     try {
       // Envia requisição para se inscrever na aula
       await axios.put(`http://localhost:3000/aulas/${classId}/adicionar-aluno`, {
@@ -131,7 +119,6 @@ const SignClasses = () => {
   return (
     <Box sx={{ p: 3 }}>
       <Grid container spacing={3}>
-        {/* Grid para o título e o card azul */}
         <Grid item xs={12} md={9}>
           <Typography
             variant="h3"
@@ -145,8 +132,6 @@ const SignClasses = () => {
             Se inscreva em uma aula
           </Typography>
         </Grid>
-
-        {/* Card Azul para Neuros e Nível Atual */}
         <Grid item xs={12} md={3}>
           <Card sx={{
             backgroundColor: '#023a58',
@@ -180,7 +165,6 @@ const SignClasses = () => {
       </Grid>
 
       <div>
-        {/* Exibe o alerta se a condição for atendida */}
         {alert && (
           <Alert variant="filled" severity={alert.severity} onClose={() => setAlert(null)}>
             {alert.message}
@@ -188,7 +172,6 @@ const SignClasses = () => {
         )}
       </div>
 
-      {/* Campo de Pesquisa */}
       <TextField
         label="Pesquisar nome da Aula"
         variant="outlined"
@@ -197,7 +180,6 @@ const SignClasses = () => {
         value={searchQuery}
         onChange={handleSearch}
       />
-      {/* Grid para exibir os cards */}
       <Grid container spacing={3}>
         {filteredClasses.map((classItem) => (
           <Grid item xs={12} md={3} key={classItem._id}>
@@ -225,7 +207,7 @@ const SignClasses = () => {
                   variant="contained"
                   endIcon={<FileDownloadDoneIcon />}
                   onClick={() => handleEnroll(classItem.id)}
-                  size="small" // Torna o botão menor
+                  size="small" 
                 >
                   Se inscrever
                 </Button>

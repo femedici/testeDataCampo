@@ -1,19 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
-import {
-  TextField,
-  Button,
-  Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Box,
-  Typography,
-  FormControlLabel,
-  Checkbox
-} from '@mui/material';
+import { TextField, Button, Grid, FormControl, InputLabel, Select, MenuItem, Box, Typography, FormControlLabel, Checkbox} from '@mui/material';
 
 const EventForm = () => {
   const [formData, setFormData] = useState({
@@ -52,10 +40,8 @@ const EventForm = () => {
       const response = await axios.post('http://localhost:3000/aulas', formData);
       console.log('Resposta do servidor:', response.data);
       setAlert({ open: true, message: 'Aula criada com sucesso!', severity: 'success' });
-      // Aqui você pode adicionar lógica adicional, como mostrar uma mensagem de sucesso
     } catch (error) {
       console.error('Erro ao enviar dados:', error);
-      // Aqui você pode adicionar lógica adicional, como mostrar uma mensagem de erro
     }
   };
 
@@ -65,15 +51,14 @@ const EventForm = () => {
         variant="h3"
         gutterBottom
         sx={{
-          fontSize: '3rem', // Altere o tamanho da fonte
-          fontWeight: 'bold', // Altere o peso da fonte
-          color: '#020341' // Altere a cor do texto
+          fontSize: '3rem', 
+          fontWeight: 'bold', 
+          color: '#020341'
         }}
       >
         Cadastre uma Aula
       </Typography>
       <div>
-        {/* Exibe o alerta se a condição for atendida */}
         {alert && (
           <Alert variant="filled" severity={alert.severity} onClose={() => setAlert(null)}>
             {alert.message}
